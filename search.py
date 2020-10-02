@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # This sample executes a search request for the specified search term.
 # Sample usage:
