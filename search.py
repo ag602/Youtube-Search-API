@@ -16,6 +16,7 @@ django.setup()
 
 import argparse
 
+from datetime import datetime
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
@@ -48,9 +49,7 @@ def youtube_search(options):
         # order=options.date,
     ).execute()
     # print(search_response)
-    # print(search_response)
     videos = []
-    # print(search_response)
     # channels = []
     # playlists = []
 
@@ -73,7 +72,7 @@ def youtube_search(options):
                         stat[i] = item['statistics'][i]
                 Vidata.objects.create(videoid=search_result['id']['videoId'], title=search_result['snippet']['title'],
                                       description=search_result['snippet']['description'],
-                                      publishedAt=search_result['snippet']['publishedAt'],
+                                      publishedAt=datetime.strptime(search_result['snippet']['publishedAt'], '%Y-%m-%dT%H:%M:%SZ'),
                                       thumbnail_medium=search_result['snippet']['thumbnails']['medium']['url'],
                                       channeltitle=search_result['snippet']['channelTitle'],
                                       viewcount=stat['viewCount'], likecount=stat['likeCount'],
@@ -93,7 +92,7 @@ def youtube_search(options):
 
     # STORING DATA IN THE DATABASE
 
-    print('Videos:\n', '\n'.join(videos), '\n')
+    # print('Videos:\n', '\n'.join(videos), '\n')
     # print ('Channels:\n', '\n'.join(channels), '\n')
     # print ('Playlists:\n', '\n'.join(playlists), '\n')
 

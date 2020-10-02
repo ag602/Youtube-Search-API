@@ -17,7 +17,6 @@ google-auth==1.22.0
 google-auth-httplib2==0.0.4
 google-auth-oauthlib==0.4.1
 googleapis-common-protos==1.52.0
-gunicorn==20.0.4
 httplib2==0.18.1
 idna==2.9
 importlib-metadata==1.6.1
@@ -25,6 +24,7 @@ ipykernel==5.3.0
 ipython==7.15.0
 ipython-genutils==0.2.0
 ipywidgets==7.5.1
+isodate==0.6.0
 jedi==0.17.1
 Jinja2==2.11.2
 jsonschema==3.2.0
@@ -73,7 +73,6 @@ uritemplate==3.0.1
 urllib3==1.25.9
 wcwidth==0.2.5
 webencodings==0.5.1
-whitenoise==5.2.0
 widgetsnbextension==3.5.1
 yarl==1.6.0
 zipp==3.1.0
