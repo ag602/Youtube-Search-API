@@ -42,7 +42,7 @@ def youtube_search(options):
     # Call the search.list method to retrieve results matching the specified
     # query term.
     search_response = youtube.search().list(
-        q='IPL 2020',
+        q='cricket',
         part='id,snippet',
         order="date",
         maxResults=options.max_results,
