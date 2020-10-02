@@ -11,7 +11,9 @@ import argparse
 
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-# from ..youtubeapi.models import *
+# import MySQLdb
+
+from ..youtubeapi.models import *
 from django.db import models
 
 # Set DEVELOPER_KEY to the API key value from the APIs & auth > Registered apps
@@ -47,13 +49,13 @@ def youtube_search(options):
   # matching videos, channels, and playlists.
   for search_result in search_response.get('items', []):
     if search_result['id']['kind'] == 'youtube#video':
-      # found = Vidata.objects.filter(videoid=search_result['id']['videoId'])
-      # if found.exists():
-      #   continue
-      # else:
-      #   Vidata.objects.create(videoid=search_result['id']['videoId'], title=search_result['snippet']['title'],
-      #                         description=search_result['snippet']['description'],
-      #                         publishedAt=search_result['snippet']['publishedAt'])
+      found = Vidata.objects.filter(videoid=search_result['id']['videoId'])
+      if found.exists():
+        continue
+      else:
+        Vidata.objects.create(videoid=search_result['id']['videoId'], title=search_result['snippet']['title'],
+                              description=search_result['snippet']['description'],
+                              publishedAt=search_result['snippet']['publishedAt'])
 
       # videos.append('%s' % (search_result['snippet']['title']))
       videos.extend([search_result['id']['videoId'],search_result['snippet']['title'],
