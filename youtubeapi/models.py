@@ -9,3 +9,7 @@ class Vidata(models.Model):
     publishedAt = models.CharField(max_length=30, null=True, blank=True)
     thumbnail_medium = models.CharField(max_length=300, null=True, blank=True)
     channeltitle = models.CharField(max_length=100, null=True, blank=True)
+    viewcount = models.CharField(max_length=40, null=True, blank=True)
+    likecount = models.CharField(max_length=40, null=True, blank=True)
+    dislikecount = models.CharField(max_length=40, null=True, blank=True)
+    videourl = models.CharField(max_length=40, null=True, blank=True)
