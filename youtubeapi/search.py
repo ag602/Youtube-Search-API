@@ -11,7 +11,7 @@ import argparse
 
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from .models import Vidata
+from models import Vidata
 from django.db import models
 
 # Set DEVELOPER_KEY to the API key value from the APIs & auth > Registered apps
