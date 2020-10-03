@@ -1,7 +1,7 @@
-# Youtube Search API [Website](http://ec2-54-92-160-125.compute-1.amazonaws.com)
+# Youtube Search API -  [Website](http://ec2-54-92-160-125.compute-1.amazonaws.com)
 
 ## How it Works?
-- In search.py, the search.list method has been called to retrieve results matching the specified query term and also the video.list
+In search.py, the search.list method has been called to retrieve results matching the specified query term and also the video.list
 method to retrieve the statistics belonging to a particular video id. The data thus obtained is getting stored in the database and then pulled on to the index page
 using python inbuilt API with the use of django querysets. On the server, a cron job has been setup to call the youtube api in every 15mins, so to fetch the latest videos
 user has to refresh the page.
@@ -26,12 +26,12 @@ user has to refresh the page.
 
 1. Host the website(here I have used a AWS EC2 instance)
 2. To set up a cronjob, use this command(on linux):
-- `crontab -e`
-- `Select nano editor [1]`
-- Enter - `*/15 * * * *  $PYTHONPATH $FILEPATH`
-- Enter full PYTHONPATH (after entering in your virtualenv type 'which python' on your terminal)
-- Enter full FILEPATH
-- Ctrl+O and then Ctrl+X to write and exit file
+    - `crontab -e`
+    - `Select nano editor [1]`
+    - Enter - `*/15 * * * *  $PYTHONPATH $FILEPATH`
+    - Enter full PYTHONPATH (after entering in your virtualenv type 'which python' on your terminal)
+    - Enter full FILEPATH
+    - Ctrl+O and then Ctrl+X to write and exit file
 
 ## Future Work
 
