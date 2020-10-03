@@ -4,6 +4,9 @@ from django.core.paginator import Paginator
 # Create your views here.
 # import arrow
 def home(request):
+    # for i in Vidata.objects.values.order_by('-id')[0]:
+    #     print(i)
+    print(Vidata.objects.values().order_by('-id')[0])
     c = Vidata.objects.order_by('-publishedAt').all()
     paginator = Paginator(c, 10) # Show 25 contacts per page.
     page_number = request.GET.get('page')

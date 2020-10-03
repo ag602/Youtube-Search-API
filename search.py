@@ -46,6 +46,7 @@ def youtube_search(options):
         part='id,snippet',
         order="date",
         maxResults=options.max_results,
+
         # order=options.date,
     ).execute()
     # print(search_response)
@@ -89,8 +90,6 @@ def youtube_search(options):
         # elif search_result['id']['kind'] == 'youtube#playlist':
         #   playlists.append('%s (%s)' % (search_result['snippet']['title'],
         #                                 search_result['id']['playlistId']))
-
-    # STORING DATA IN THE DATABASE
 
     # print('Videos:\n', '\n'.join(videos), '\n')
     # print ('Channels:\n', '\n'.join(channels), '\n')
