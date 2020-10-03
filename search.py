@@ -99,7 +99,7 @@ def youtube_search(options):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--q', help='Search term', default='Google')
-    parser.add_argument('--max-results', help='Max results', default=25)
+    parser.add_argument('--max-results', help='Max results', default=100)
     # parser.add_argument('--order', help='Order', default="date")
     args = parser.parse_args()
 
