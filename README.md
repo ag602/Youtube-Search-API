@@ -10,6 +10,7 @@ user has to refresh the page.
 
 - Python 3.6+
 - Django 2.2
+- Nginx
 - AWS EC2 (for hosting)
 
 ## Test Locally
