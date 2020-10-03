@@ -4,7 +4,7 @@
 In search.py, the search.list method has been called to retrieve results matching the specified query term and also the video.list
 method to retrieve the statistics belonging to a particular video id. The data thus obtained is getting stored in the database and then pulled on to the index page
 using python inbuilt API with the use of django querysets. On the server, a cron job has been setup to call the youtube api in every 15mins, so to fetch the latest videos
-user has to refresh the page.
+user has to refresh the page. The videos are displayed in a paginated response by using django paginator which splits querysets into page objects
 
 ## Tech Stack Used
 
