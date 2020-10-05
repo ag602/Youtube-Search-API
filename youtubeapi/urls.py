@@ -10,4 +10,5 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.home, name='index'),
+    url(r'^watch_v=(?P<video_id>[\w-]+)', views.watch ,name='watch')
     ]

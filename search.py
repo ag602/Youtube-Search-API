@@ -71,16 +71,28 @@ def youtube_search(options):
                 for item in request_stats['items']:
                     for i in item['statistics']:
                         stat[i] = item['statistics'][i]
-                Vidata.objects.create(videoid=search_result['id']['videoId'], title=search_result['snippet']['title'],
-                                      description=search_result['snippet']['description'],
-                                      publishedAt=datetime.strptime(search_result['snippet']['publishedAt'], '%Y-%m-%dT%H:%M:%SZ'),
-                                      thumbnail_medium=search_result['snippet']['thumbnails']['medium']['url'],
-                                      channeltitle=search_result['snippet']['channelTitle'],
-                                      viewcount=stat['viewCount'], likecount=stat['likeCount'],
-                                      dislikecount=stat['dislikeCount'],
-                                      videourl="https://www.youtube.com/watch?v="+search_result['id']['videoId'])
+                if "likeCount" in stat:
+                    data = Vidata(videoid=search_result['id']['videoId'], title=search_result['snippet']['title'],
+                                          description=search_result['snippet']['description'],
+                                          publishedAt=datetime.strptime(search_result['snippet']['publishedAt'], '%Y-%m-%dT%H:%M:%SZ'),
+                                          thumbnail_medium=search_result['snippet']['thumbnails']['medium']['url'],
+                                          channeltitle=search_result['snippet']['channelTitle'],
+                                          viewcount=stat['viewCount'], likecount=stat['likeCount'],
+                                          dislikecount=stat['dislikeCount'],
+                                          videourl="https://www.youtube.com/watch?v="+search_result['id']['videoId'])
+                else:
+                    data = Vidata(videoid=search_result['id']['videoId'],
+                                          title=search_result['snippet']['title'],
+                                          description=search_result['snippet']['description'],
+                                          publishedAt=datetime.strptime(search_result['snippet']['publishedAt'],
+                                                                        '%Y-%m-%dT%H:%M:%SZ'),
+                                          thumbnail_medium=search_result['snippet']['thumbnails']['medium']['url'],
+                                          channeltitle=search_result['snippet']['channelTitle'],
+                                          viewcount=stat['viewCount'], likecount="NA",
+                                          dislikecount="NA",
+                                          videourl="https://www.youtube.com/watch?v=" + search_result['id']['videoId'])
 
-            # videos.append('%s' % (search_result['snippet']['title']))
+                    data.save()
         videos.extend([search_result['id']['videoId'], search_result['snippet']['title'],
                        search_result['snippet']['description'], search_result['snippet']['publishedAt']])
 

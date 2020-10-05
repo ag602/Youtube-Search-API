@@ -2,8 +2,9 @@
 	<title>Youtube</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    {# Refresh page after 300sec #}
+    <meta http-equiv="refresh" content="300">
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
-
 	<link rel="stylesheet" type="text/css" href="/static/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/fontawesome.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
@@ -138,7 +139,7 @@
 			{% for i in page_obj %}
 			<div class="container-fluid">
 				<div class="container-fluid mt-4 pl-2">
-					<a href="{{ i.videourl }}">
+					<a href="/watch_v={{ i.videoid }}">
 						<div class="card">
 							<div class="row">
 								<div class="col-md-6">
